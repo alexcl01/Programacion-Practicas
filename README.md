@@ -39,6 +39,39 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
         System.out.println(rb.getString("language"));	                                                                          
   		                                                                                      
         }`
+	
+**METHODS**: A method is a block of code which only runs when it is called. You can pass parameters into a method. Methods are used to perform certain actions, 
+             and they are also known as functions. These are a few examples of methods in my program:
+	     
+	     
+       ` public boolean buildRooms(int num) {      					//method to build rooms 
+	     //make sure the parameter is valid
+	       if (num <= 0) {
+	          return false;
+	       }
+	       //increase the capacity of the Vector
+	       rooms.ensureCapacity(rooms.size() + num);
+	       for (int i = 0; i < num; i++) {
+		   rooms.add(null);
+	       }
+	       //report success
+	       return true;
+	  }`  
+	  
+	  public boolean reserveRoom(String person, int roomNum) {	               //method to reserve room 
+	        try {                                                                       //with person and room number.
+			if (rooms.get(roomNum - 1) == null) {
+				reserveObj = new Reservation(person,roomNum);
+				rooms.set(roomNum  - 1,reserveObj);
+				rnum++;
+				return true;
+			}
+		} catch (Exception vb) {
+			return false;
+		}
+		return false;
+	}
+	
       
       
                    
