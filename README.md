@@ -25,6 +25,20 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 								  
 							          // On each method
 								     System.out.println("Reservation did at " + datetimeNow);
+								     
+**INTERNATIONALIZATION**: Internationalization is the process of designing an application so that it can be adapted to various languages and 
+                          regions without engineering changes. Sometimes the term internationalization is abbreviated as i18n.
+			   
+			  
+    `// internationalization                                                                    `if(choice.equalsIgnoreCase("Change language")) {
+        private static void i18n() throws IOException {                                               i18n();
+	    ResourceBundle rb = ResourceBundle.getBundle("Practicas/resource_bundle");               }`
+		
+	    Locale.setDefault(new Locale ("es", "ES"));
+        rb = ResourceBundle.getBundle("Practicas/resource_bundle");
+        System.out.println(rb.getString("language"));	                                                                          
+  		                                                                                      
+        }`
       
       
                    
