@@ -73,9 +73,9 @@ public class Simulation {
 		int roomnum;
 
 		// LocalDate class
-        LocalDate dateNow = LocalDate.now();
-        LocalTime timeNow = LocalTime.now();
-        LocalDateTime datetimeNow = LocalDateTime.of(dateNow, timeNow);
+                LocalDate dateNow = LocalDate.now();
+                LocalTime timeNow = LocalTime.now();
+                LocalDateTime datetimeNow = LocalDateTime.of(dateNow, timeNow);
 
         
 		//main loop
