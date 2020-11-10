@@ -99,7 +99,9 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 	     }`
 	     
 	     
-	     `READLINE: The readLine() method is used to read a single line of text from the console. Return value: This method returns the string                                                       containing the line that is read from the console. It returns null if the stream has ended.
+	     `READLINE: The readLine() method is used to read a single line of text from the console. 
+	     Return value: This method returns the string containing the line that is read from the console. 
+	     It returns null if the stream has ended.
 	     
 	      private static String readLine() {
 		    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
