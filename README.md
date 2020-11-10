@@ -132,7 +132,7 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 		import java.util.ResourceBundle;`
       
                 
-	      `DECLARATIONS OF THE METHODS (some examples):
+	      `DECLARATION OF THE METHODS (some examples):
 	      											//reserve some room
 		if (command.equalsIgnoreCase("reserve")) {
 			//prompt for name
@@ -181,14 +181,3 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 			}		
 		}
 	      `
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                                                   
- 
