@@ -4,7 +4,7 @@ THIS PROGRAM IS AN UPDATED AND IMPROVED VERSION OF 'Programacion-Practica1'.
 INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE METHODS AND A TEST TO PROVE IF EVERYTHING IS GOING AS EXPECTED.
 
 **INHERITENCE**: Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. The class which inherits the properties 
-of other is known as subclass, and the class whose properties are inherited is known as superclass.
+                 of other is known as subclass, and the class whose properties are inherited is known as superclass.
      
      `public class Hotel extends Reservation{`               `public class Reservation{
 	                                                          //instance variables
@@ -12,6 +12,20 @@ of other is known as subclass, and the class whose properties are inherited is k
 	                                                          private int roomNumber;
 
 	                                                          private ArrayList<Reservation> rooms;`
+						
+**LOCALDATE CLASS**: LocalDate, LocalTime and LocalDateTime classes are immutable classes that represent Date and Time 
+                     with a default format of yyyy-MM-dd-HH-mm-ss.zzz in the case of LocalDateTime. 
+		     
+		     
+      `import java.time.LocalDate;                          `// LocalDate class
+       import java.time.LocalDateTime;                          LocalDate dateNow = LocalDate.now();
+       import java.time.LocalTime;`	                            LocalTime timeNow = LocalTime.now();
+		                                                    LocalDateTime datetimeNow = LocalDateTime.of(dateNow, timeNow);`
+								  
+								  
+							          // On each method
+								     System.out.println("Reservation did at " + datetimeNow);
+      
       
                    
     
@@ -24,3 +38,4 @@ of other is known as subclass, and the class whose properties are inherited is k
     
     
                                                    
+ 
