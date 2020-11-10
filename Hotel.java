@@ -8,8 +8,8 @@ also we can add more rooms
 import java.util.ArrayList;
 
 public class Hotel extends Reservation{
-	//instance variable, ArrayList tracks current reservations
 	
+	//instance variable, ArrayList tracks current reservations
 	private ArrayList<Reservation> rooms;
 	private int rnum = 1;
 	
