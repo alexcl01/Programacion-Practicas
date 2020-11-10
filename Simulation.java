@@ -110,12 +110,6 @@ public class Simulation {
 				
 				String command = readLine();
 				
-				/*if(command.equalsIgnoreCase("Language")) {
-					i18nNY();
-					resMenu();
-					
-				}*/
-				
 				
 				//if user want to quit
 				if ((command == null) || command.equalsIgnoreCase("quit")) {
