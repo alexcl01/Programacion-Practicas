@@ -72,9 +72,113 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 		return false;
 	  }
 	
+**TEST**: Unit tests are used to test individual code components and ensure that code works the way it was intended to. Unit tests are written and executed by developers. 
+          They are typically written at a method level and executed via automation. These are some of the parts of my test:
+	  
+	  `THE MENUS:
+	  // selection menu
+	     private static void selMenu() {
+		System.out.println("Welcome to the hotels list, in which city do you want to reserve a hotel room?\n"
+				+ "-> New York\n" 
+				+ "-> Washington\n"
+				+ "-> Chicago\n\n"
+				+ "-> Change language - You will see the platform in both languages\n"
+				+ "-> Quit\n");
+	     }
+	
+	
+	  // reservation menu
+	     private static void resMenu() {
+		 System.out.println("Welcome to the reservation program of the hotel, these are your options here:\n\n"
+				+ "-> print - show all reservations\n"
+				+ "-> reserve - reserve a room for someone\n"
+				+ "-> reserveN - reserve a particular room\n"
+				+ "-> cancel - cancel someone's reservations\n"
+				+ "-> build - build some more rooms for the hotel\n"
+				+ "-> quit - leave the reservations\n");
+	     }`
+	     
+	     
+	     `READLINE: The readLine() method is used to read a single line of text from the console. Return value: This method returns the string                                                       containing the line that is read from the console. It returns null if the stream has ended.
+	     
+	      private static String readLine() {
+		    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+		    try {
+			  return stdin.readLine();
+		    } catch (Exception e) {
+			  System.out.println("Invalid Input");
+		    }
+		    return null;
+	      }
+	      
+	      System.out.print("Command: ");
+	      System.out.flush();
+	      String command = readLine();`
+	      
+	      
+	      `IMPORTS: Classes we will need all along the program.
+	      
+	        import java.io.BufferedReader;
+		import java.io.IOException;
+		import java.io.InputStreamReader;
+		
+		import java.time.LocalDate;
+		import java.time.LocalDateTime;
+		import java.time.LocalTime;
+		
+		import java.util.Locale;
+		import java.util.ResourceBundle;`
       
-      
-                   
+                
+	      `DECLARATIONS OF THE METHODS (some examples):
+	      											//reserve some room
+		if (command.equalsIgnoreCase("reserve")) {
+			//prompt for name
+			System.out.print("Name: ");
+			System.out.flush();
+			name = readLine();
+			roomnum = -1;
+			//if we got a good name, try to reserve a room
+			if (!((name == null) || (name.equals("")))) {
+				roomnum = hotel1.reserveRoom(name);
+			}
+			//give feedback
+			if (roomnum == -1) {
+				System.out.println("No reservation possible!");
+			} else {
+				System.out.println(name + " reserved room " + roomnum);
+						
+				System.out.println("Reservation did at " + datetimeNow);
+				System.out.println();
+			}
+		}
+		
+		else if (command.equalsIgnoreCase("build")) {					//build some more rooms
+			//prompt for the number
+			System.out.print("How many: ");
+			System.out.flush();
+			num = readLine();
+					
+			//convert to an int
+			roomnum = -1;
+			if (num != null) {
+				try {
+					roomnum = Integer.parseInt(num);
+				} catch (Exception e) {
+					roomnum = -1;
+				}
+			}
+			//add the rooms
+			if (hotel1.buildRooms(roomnum)) {
+				System.out.println("Added " + roomnum + " more rooms");
+			} else {
+				System.out.println("No more rooms for you");
+						
+				System.out.println("Construction of new rooms did at " + datetimeNow);
+				System.out.println();
+			}		
+		}
+	      `
     
     
     
