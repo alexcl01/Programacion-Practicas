@@ -18,7 +18,7 @@ class HotelTest {
 		
 		assertEquals("The sound of the sea", NYHotel.getHotelName());
 		assertEquals(5, WAHotel.getStarsNumber());
-		assertEquals("Apollo", CHHotel.getHotelName());
+		assertEquals("Laura", CHHotel.getName());
 	}
 
 }
