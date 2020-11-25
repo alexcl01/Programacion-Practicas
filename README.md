@@ -137,7 +137,7 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
     }
 
 	  
-**MAIN MENU**: Where it all happens:
+**MAIN MENU**: Where it all happens. These are some of the parts:
 	  
 	  `THE MENUS:
 	  // selection menu
