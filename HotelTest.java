@@ -12,9 +12,6 @@ class HotelTest {
 
 	@Test
 	void test() {
-		// instancia de hotel 
-		// como validar el nombre del hotel
-		// assertEquals
 		
 		assertEquals("The sound of the sea", NYHotel.getHotelName());
 		assertEquals(5, WAHotel.getStarsNumber());
