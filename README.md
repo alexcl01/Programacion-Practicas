@@ -187,3 +187,63 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 **CLASS DIAGRAM**: A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. Class diagrams enable us to model software in a high level of abstraction and without having to look at the source code.
 
 https://github.com/alexcl01/Programacion-Practicas/issues/2#issue-750944431
+
+
+**INTERFACES**: An interface in the Java programming language is an abstract type that is used to specify a behavior that classes must implement. Interfaces cannot be instantiated, but rather are implemented. A class that implements an interface must implement all of the non-default methods described in the interface, or be an abstract class.
+This is the interface I implemented in my program:
+
+	`public interface IBusqueda {						
+	     public void inserta(String clave);
+	     public boolean contiene(String clave);
+
+	}									`import java.util.HashSet;
+										 import java.util.Set;
+	`
+										 public class BusquedaHashSet {
+
+											private Set<String> conjunto;
+											private String HotelName;
+
+											public BusquedaHashSet(String hotelName) {
+												this.HotelName = hotelName;
+											}
+
+											public String getHotelName() {
+												return HotelName;
+											}
+
+
+
+											public BusquedaHashSet() {
+												this.conjunto = new HashSet<String>();
+											}
+
+											public void inserta(String clave) {
+												this.conjunto.add(clave);
+											}
+
+											public boolean contiene(String clave) {
+												return this.conjunto.contains(clave);
+											}
+
+										}
+
+		`// INTERFACE //
+		
+		ConjuntoHashSet c1 = new ConjuntoHashSet();
+		
+		c1.inserta("The sound of the sea");
+		c1.inserta("Apollo");
+		c1.inserta("Music time");
+
+		String hotelName = "Grand prix";
+		String hotelName2 = "Apollo";
+		
+		System.out.println("INTERFACE OF THE HOTEL LIST:\n");
+
+		System.out.println("-> '" + hotelName + "' " + ((c1.contiene(hotelName)) ? "is in our list." : "is not in our list."));      // use of the ?: operator
+		
+		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    // use of the ?: operator
+
+		
+
