@@ -187,5 +187,3 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 **CLASS DIAGRAM**: A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. Class diagrams enable us to model software in a high level of abstraction and without having to look at the source code.
 
 https://github.com/alexcl01/Programacion-Practicas/issues/2#issue-750944431
-
-
