@@ -1,7 +1,6 @@
 package Practicas;
 
-/*a driver/test program for the Hotel class
-it instantiates a Hotel and uses the member functions*/
+//the program for the Hotel class, it instantiates a Hotel and uses the member functions
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,9 +10,27 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Locale;
+
 import java.util.ResourceBundle;
 
+import interfaces.conjunto.ConjuntoHashSet;
+
+
+
 public class Simulation {
+	
+	//variables
+	String hotel;
+	float prize;
+	double discountedPrize;
+	
+	//constructor
+	public Simulation(String Hotel, float Prize, double DiscountedPrize) {
+		this.hotel = Hotel;
+		this.prize = Prize;
+		this.discountedPrize = DiscountedPrize;
+	}
+	
 
 	private static String readLine() {
 		
@@ -28,7 +45,7 @@ public class Simulation {
 	
 	// selection menu
 	private static void selMenu() {
-		System.out.println("Welcome to the hotels list, in which city do you want to reserve a hotel room?\n"
+		System.out.println("\n\nWelcome to the hotels list, in which city do you want to reserve a hotel room?\n"
 				+ "-> New York\n" 
 				+ "-> Washington\n"
 				+ "-> Chicago\n\n"
@@ -53,29 +70,60 @@ public class Simulation {
 		ResourceBundle rb = ResourceBundle.getBundle("Practicas/resource_bundle");
 		
 		Locale.setDefault(new Locale ("es", "ES"));
-		rb = ResourceBundle.getBundle("Practicas/resource_bundle_es_ES");
+		rb = ResourceBundle.getBundle("Practicas/resource_bundle");
 		System.out.println(rb.getString("language"));
 
+	}
+	
+	public String getHotel() {
+		return hotel;
+	}
+	
+	public float getPrize() {
+		return prize;
+	}
+	
+	public double getDiscountedPrize() {
+		return discountedPrize;
 	}
 	
 	
 	//main function
 	public static void main(String[] args) throws IOException {
 		
+		
+		// INTERFACE //
+		
+		ConjuntoHashSet c1 = new ConjuntoHashSet();
+		
+		c1.inserta("The sound of the sea");
+		c1.inserta("Apollo");
+		c1.inserta("Music time");
+
+		String hotelName = "Grand prix";
+		String hotelName2 = "Apollo";
+		
+		System.out.println("INTERFACE OF THE HOTEL LIST:\n");
+
+		System.out.println("-> '" + hotelName + "' " + ((c1.contiene(hotelName)) ? "is in our list." : "is not in our list."));      // use of the ?: operator
+		
+		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    // use of the ?: operator
+
+
 		//instantiate the hotels
 		Hotel hotel1 = new Hotel(4, "The sound of the sea");
 		Hotel hotel2 = new Hotel(5, "Music time");
 		Hotel hotel3 = new Hotel(3, "Apollo");
-		
+
 		// variables
 		String name;
 		String num;
 		int roomnum;
 
 		// LocalDate class
-                LocalDate dateNow = LocalDate.now();
-                LocalTime timeNow = LocalTime.now();
-                LocalDateTime datetimeNow = LocalDateTime.of(dateNow, timeNow);
+		LocalDate dateNow = LocalDate.now();
+		LocalTime timeNow = LocalTime.now();
+		LocalDateTime datetimeNow = LocalDateTime.of(dateNow, timeNow);
 
         
 		//main loop
@@ -105,6 +153,9 @@ public class Simulation {
 				resMenu(); // reservation menu
 				
 				
+				// the prize of each room
+				double roomPrize = 100;
+				
 				System.out.print("Command: ");
 				System.out.flush();
 				
@@ -131,10 +182,32 @@ public class Simulation {
 					if (roomnum == -1) {
 						System.out.println("No reservation possible!");
 					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Reservation did at " + datetimeNow);
-						System.out.println();
+						System.out.println("Are you over 70?");
+						
+						System.out.print("Age: ");
+						System.out.flush();
+						
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));       // use of class Math
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 				}
 				//reserve a particular room
@@ -161,10 +234,32 @@ public class Simulation {
 					if (!hotel1.reserveRoom(name, roomnum)) {
 						System.out.println("No reservation possible!");
 					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Number reservation did at " + datetimeNow);
-						System.out.println();
+						System.out.println("Are you over 70?");
+
+						System.out.print("Age: ");
+						System.out.flush();
+
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 					
 				} else if (command.equalsIgnoreCase("cancel")) {
@@ -214,15 +309,16 @@ public class Simulation {
 						System.out.println("Construction of new rooms did at " + datetimeNow);
 						System.out.println();
 					}
-				
 				}
-				
 			}
 			
 			if(choice.equalsIgnoreCase("Washington")) {
 				System.out.println("The hotel's name is " + hotel2.getHotelName() + " and its stars number is: " + hotel2.getStarsNumber());
 				
 				resMenu(); // reservation menu
+				
+				// the prize of each room
+				double roomPrize = 240;
 				
 				
 				System.out.print("Command: ");
@@ -248,11 +344,34 @@ public class Simulation {
 					//give feedback
 					if (roomnum == -1) {
 						System.out.println("No reservation possible!");
-					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Reservation did at " + datetimeNow);
-						System.out.println();
+					} else {
+						
+						System.out.println("Are you over 70?");
+
+						System.out.print("Age: ");
+						System.out.flush();
+
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 				}
 				//reserve a particular room
@@ -278,11 +397,34 @@ public class Simulation {
 					//give feedback
 					if (!hotel2.reserveRoom(name, roomnum)) {
 						System.out.println("No reservation possible!");
-					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Number reservation did at " + datetimeNow);
-						System.out.println();
+					} else {
+						
+						System.out.println("Are you over 70?");
+
+						System.out.print("Age: ");
+						System.out.flush();
+
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 					
 				} else if (command.equalsIgnoreCase("cancel")) {
@@ -332,15 +474,16 @@ public class Simulation {
 						System.out.println("Construction of new rooms did at " + datetimeNow);
 						System.out.println();
 					}
-				
 				}
-				
 			}
 			
 			if(choice.equalsIgnoreCase("Chicago")) {
 				System.out.println("The hotel's name is " + hotel3.getHotelName() + " and its stars number is: " + hotel3.getStarsNumber());
 				
 				resMenu(); // reservation menu
+				
+				// the prize of each room
+				double roomPrize = 80;
 				
 				
 				System.out.print("Command: ");
@@ -366,11 +509,34 @@ public class Simulation {
 					//give feedback
 					if (roomnum == -1) {
 						System.out.println("No reservation possible!");
-					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Reservation did at " + datetimeNow);
-						System.out.println();
+					} else {
+
+						System.out.println("Are you over 70?");
+
+						System.out.print("Age: ");
+						System.out.flush();
+
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 				}
 				//reserve a particular room
@@ -396,11 +562,34 @@ public class Simulation {
 					//give feedback
 					if (!hotel3.reserveRoom(name, roomnum)) {
 						System.out.println("No reservation possible!");
-					} else {
-						System.out.println(name + " reserved room " + roomnum);
 						
-						System.out.println("Number reservation did at " + datetimeNow);
-						System.out.println();
+					} else {
+						
+						System.out.println("Are you over 70?");
+
+						System.out.print("Age: ");
+						System.out.flush();
+
+						String age = readLine();
+
+						if (age.equalsIgnoreCase("Yes")) {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+
+						}else {
+
+							System.out.println(name + " reserved room " + roomnum);
+
+							System.out.println("The prize of the room is $" + roomPrize);
+
+							System.out.println("Reservation did at " + datetimeNow);
+							System.out.println();
+						}
 					}
 					
 				} else if (command.equalsIgnoreCase("cancel")) {

@@ -7,9 +7,8 @@ public class Reservation{
 	//instance variables
 	private String name;
 	private int roomNumber;
+	private float prize;
 
-	
-	private ArrayList<Reservation> rooms;
 
 	//constructors, must supply the name, and optionally a room
 	
@@ -24,6 +23,13 @@ public class Reservation{
 	public Reservation(String person, int room) {
 		this.name = person;
 		this.roomNumber = room;
+	}
+	
+	
+	public Reservation(String person, int room, float prize) {					// new overloaded method
+		this.name = person;
+		this.roomNumber = room;
+		this.prize = prize;
 	}
 
 	//set the room number or name
@@ -47,4 +53,11 @@ public class Reservation{
 	public String getName() {
 		return name;
 	}
+	
+	
+	// return the prize of the room
+	public float getPrize() {
+		return prize;
+	}
+	
 }

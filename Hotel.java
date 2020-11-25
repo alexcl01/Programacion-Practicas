@@ -81,8 +81,8 @@ public class Hotel extends Reservation{
 	//reserves a particular room for this person
 	//returns false on failure (eg. room is already reserved)
 	
-	//Reserve room with person and room number.
 	
+	//Reserve room with person and room number.
 	public boolean reserveRoom(String person, int roomNum) {
 		try {
 			if (rooms.get(roomNum - 1) == null) {
