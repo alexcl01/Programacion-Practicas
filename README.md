@@ -325,3 +325,47 @@ I used this class here:
 			System.out.println("Reservation did at " + datetimeNow);
 			System.out.println();`
 
+
+**NEW OVERLOADED METHOD/CONSTRUCTOR**: Method Overloading is a feature that allows a class to have more than one method having the same name, if their argument lists are different. It is similar to constructor overloading in Java, that allows a class to have more than one constructor having different argument lists.
+I did a few overlaods but this is the one I recentlty implemented:
+
+		`public Reservation(String person, int room, float prize) {					// new overloaded method
+			this.name = person;
+			this.roomNumber = room;
+			this.prize = prize;
+		}`
+
+
+**REFACTORING CODE**: The process of changing a software system in such a way that it does not alter the external behavior of the code but improves its internal structure. It is a disciplined way of cleaning up code that minimizes the chances of introducing an error. In essence, when you refactor, you are improving the design of the code after it was written.
+One example in my code is when I did functions with the main menus of the simulation to not have to write them every new hotel:
+
+	`
+	OUTSIDE THE MAIN MENU:
+	// selection menu
+	private static void selMenu() {
+		System.out.println("\n\nWelcome to the hotels list, in which city do you want to reserve a hotel room?\n"
+				+ "-> New York\n" 
+				+ "-> Washington\n"
+				+ "-> Chicago\n\n"
+				+ "-> Change language - You will see the platform in both languages\n"
+				+ "-> Quit\n");
+	}
+	
+	
+	// reservation menu
+	private static void resMenu() {
+		System.out.println("Welcome to the reservation program of the hotel, these are your options here:\n\n"
+				+ "-> print - show all reservations\n"
+				+ "-> reserve - reserve a room for someone\n"
+				+ "-> reserveN - reserve a particular room\n"
+				+ "-> cancel - cancel someone's reservations\n"
+				+ "-> build - build some more rooms for the hotel\n"
+				+ "-> quit - leave the reservations\n");
+	}`
+	
+	IN THE MAIN MENU, ON EACH HOTEL MENU:
+	
+	selMenu(); // selection menu
+	resMenu(); // reservation menu
+	
+	
