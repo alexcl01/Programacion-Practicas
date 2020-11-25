@@ -75,7 +75,69 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 	  }
 	
 **TEST**: Unit tests are used to test individual code components and ensure that code works the way it was intended to. Unit tests are written and executed by developers. 
-          They are typically written at a method level and executed via automation. These are some of the parts of my test:
+          They are typically written at a method level and executed via automation. These are some of my tests:
+	  
+    class HotelTest {
+	
+	// instancia de hotel 
+	Hotel NYHotel = new Hotel("Alex", 5, 4, "The sound of the sea");
+	Hotel WAHotel = new Hotel("Elsa", 2, 5, "Music Time");
+	Hotel CHHotel = new Hotel("Laura", 3, 3, "Apollo");
+
+	@Test
+	void test() {
+		// como validar el nombre del hotel (assertEquals)
+		
+		assertEquals("The sound of the sea", NYHotel.getHotelName());
+		assertEquals(5, WAHotel.getStarsNumber());
+		assertEquals("Laura", CHHotel.getName());
+	}
+
+    }`
+    
+    class ReservationTest {
+	
+	Reservation Reserve = new Reservation("Alex");
+	Reservation ReserveNumber = new Reservation("Maria", 4);
+
+	@Test
+	void test() {
+		assertEquals("Alex", Reserve.getName());
+		assertEquals("Maria", ReserveNumber.getName());
+		assertEquals(4, ReserveNumber.getRoom());
+	}
+
+    }
+    
+    class SimulationTest {
+	
+	Simulation Simul1 = new Simulation("The sound of the sea", 100, 10);
+	Simulation Simul2 = new Simulation("Music time", 240, 15.491933);
+	Simulation Simul3 = new Simulation("Apollo", 80, 8.944271);
+
+	@Test
+	void test() {
+		
+		assertEquals("Apollo", Simul3.getHotel());
+		assertEquals(100.0, Simul1.getPrize());
+		assertEquals("Music time", Simul2.getHotel());
+		assertEquals(15.491933, Simul2.getDiscountedPrize());
+		
+	}
+    }
+    
+    class BusquedaHashSetTest {
+	
+	BusquedaHashSet BHS = new BusquedaHashSet("Apollo");
+
+	@Test
+	void test() {
+		assertEquals("Apollo", BHS.getHotelName());
+	}
+    }
+
+	  
+**MAIN MENU**: Where it all happens:
 	  
 	  `THE MENUS:
 	  // selection menu
@@ -246,4 +308,17 @@ This is the interface I implemented in my program:
 		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    // use of the ?: operator
 
 		
+		
+		
+**MATH CLASS**: Class math is a class that is used to perform basic math functions. It includes methods for square and cubic roots, to perform exponents (can also be used for negative exponents and roots), compare variables, a constant for pi, etc. Beacause all of it's methods are static, people cannot create an object of this type.
+I used this class here:
+
+		`if (age.equalsIgnoreCase("Yes")) {
+
+			System.out.println(name + " reserved room " + roomnum);
+
+			System.out.println("The prize of the room is $" + Math.sqrt(roomPrize));       // use of class Math
+
+			System.out.println("Reservation did at " + datetimeNow);
+			System.out.println();`
 
