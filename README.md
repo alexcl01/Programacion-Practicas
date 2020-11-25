@@ -3,6 +3,8 @@
 THIS PROGRAM IS AN UPDATED AND IMPROVED VERSION OF 'Programacion-Practica1'.
 INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE METHODS AND A TEST TO PROVE IF EVERYTHING IS GOING AS EXPECTED.
 
+---> IN THE NEW VERSION (Practica3) I INCLUDED A CLASS DIAGRAM, AN INTERFACE, A NEW OVERLOADED METHOD, THE CLASS MATH, THE ?: OPERATOR AND NEW TESTS.
+
 **INHERITENCE**: Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. The class which inherits the properties 
                  of other is known as subclass, and the class whose properties are inherited is known as superclass.
      
@@ -182,5 +184,7 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 		}
 	      `
 
+**CLASS DIAGRAM**: A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. Class diagrams enable us to model software in a high level of abstraction and without having to look at the source code.
 
-https://github.com/alexcl01/Programacion-Practica2/issues/1#issue-749806443
+
+
