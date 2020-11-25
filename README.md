@@ -254,6 +254,9 @@ https://github.com/alexcl01/Programacion-Practicas/issues/2#issue-750944431
 **INTERFACES**: An interface in the Java programming language is an abstract type that is used to specify a behavior that classes must implement. Interfaces cannot be instantiated, but rather are implemented. A class that implements an interface must implement all of the non-default methods described in the interface, or be an abstract class.
 This is the interface I implemented in my program:
 
+**?: OPERATOR**: The ternary operator is a part of Java's conditional statements. As the name ternary suggests, it is the only operator in Java consisting of three operands. The ternary operator can be thought of as a simplified version of the if-else statement with a value to be returned.
+I used this operator in the interface.
+
 	`public interface IBusqueda {						
 	     public void inserta(String clave);
 	     public boolean contiene(String clave);
@@ -303,9 +306,9 @@ This is the interface I implemented in my program:
 		
 		System.out.println("INTERFACE OF THE HOTEL LIST:\n");
 
-		System.out.println("-> '" + hotelName + "' " + ((c1.contiene(hotelName)) ? "is in our list." : "is not in our list."));      // use of the ?: operator
+		System.out.println("-> '" + hotelName + "' " + ((c1.contiene(hotelName)) ? "is in our list." : "is not in our list."));      //** use of the ?: operator
 		
-		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    // use of the ?: operator
+		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    //** use of the ?: operator
 
 		
 		
