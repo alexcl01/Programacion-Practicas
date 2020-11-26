@@ -248,7 +248,7 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 
 **CLASS DIAGRAM**: A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. Class diagrams enable us to model software in a high level of abstraction and without having to look at the source code.
 
-https://github.com/alexcl01/Programacion-Practicas/issues/2#issue-750944431
+https://github.com/alexcl01/Programacion-Practicas/issues/3#issue-751370781
 
 
 **INTERFACES**: An interface in the Java programming language is an abstract type that is used to specify a behavior that classes must implement. Interfaces cannot be instantiated, but rather are implemented. A class that implements an interface must implement all of the non-default methods described in the interface, or be an abstract class.
