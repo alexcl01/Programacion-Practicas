@@ -3,7 +3,7 @@ package Practicas;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BusquedaHashSet {
+public class BusquedaHashSet implements IBusqueda{
 
 	private Set<String> conjunto;
 	private String HotelName;
