@@ -99,15 +99,16 @@ public class Simulation {
 		c1.inserta("The sound of the sea");
 		c1.inserta("Apollo");
 		c1.inserta("Music time");
-
-		String hotelName = "Grand prix";
-		String hotelName2 = "Apollo";
 		
-		System.out.println("INTERFACE OF THE HOTEL LIST:\n");
-
-		System.out.println("-> '" + hotelName + "' " + ((c1.contiene(hotelName)) ? "is in our list." : "is not in our list."));      // use of the ?: operator
+		System.out.println("INTERFACE OF THE HOTELS LIST:\n");
 		
-		System.out.println("-> '" + hotelName2 + "' " + ((c1.contiene(hotelName2)) ? "is in our list." : "is not in our list."));    // use of the ?: operator
+		System.out.print("Hotel Choice?: ");
+		System.out.flush();
+		
+		String hotelChoice = readLine();
+
+
+		System.out.println("-> '" + hotelChoice + "' " + ((c1.contiene(hotelChoice)) ? "is in our list." : "is not in our list."));      // use of the ?: operator
 
 
 		//instantiate the hotels
