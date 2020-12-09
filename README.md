@@ -189,13 +189,23 @@ INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE MET
 	        import java.io.BufferedReader;
 		import java.io.IOException;
 		import java.io.InputStreamReader;
-		
+
 		import java.time.LocalDate;
 		import java.time.LocalDateTime;
 		import java.time.LocalTime;
-		
 		import java.util.Locale;
-		import java.util.ResourceBundle;`
+
+		import java.util.ResourceBundle;
+
+		import interfaces.conjunto.ConjuntoHashSet;
+
+		import java.io.File;
+		import java.util.Scanner;
+		import java.io.PrintWriter;
+
+		import javax.crypto.Cipher;
+		import javax.crypto.KeyGenerator;
+		import javax.crypto.SecretKey;`
       
                 
 	      `IMPLEMENTATION OF THE METHODS (some examples):
