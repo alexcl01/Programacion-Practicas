@@ -3,7 +3,9 @@
 THIS PROGRAM IS AN UPDATED AND IMPROVED VERSION OF 'Programacion-Practica1'.
 INCLUDES INHERITENCE , THE LOCALDATE CLASS, INTERNATIONALIZATION, A LOT MORE METHODS AND A TEST TO PROVE IF EVERYTHING IS GOING AS EXPECTED.
 
----> IN THIS NEW VERSION (Practica3) I INCLUDED A CLASS DIAGRAM, AN INTERFACE, A NEW OVERLOADED METHOD, THE CLASS MATH, THE ?: OPERATOR AND NEW TESTS.
+---> IN THIS VERSION (Practica3) I INCLUDED A CLASS DIAGRAM, AN INTERFACE, A NEW OVERLOADED METHOD, THE CLASS MATH, THE ?: OPERATOR AND NEW TESTS.
+
+---> IN THE FINAL VERSION (Practica4) I INCLUDED GENERICS, READING AND WRITING OVER A TEXT FILE AND FINALLY THE CRYPTO LIBRARY.
 
 **INHERITENCE**: Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. The class which inherits the properties 
                  of other is known as subclass, and the class whose properties are inherited is known as superclass.
@@ -370,3 +372,140 @@ One example in my code is when I did functions with the main menus of the simula
 	resMenu(); // reservation menu
 	
 	
+**GENERICS**: Generics are a facility of generic programming that were added to the Java programming language in 2004 within version J2SE 5.0. They were designed to extend Java's type system to allow "a type or method to operate on objects of various types while providing compile-time type safety". Here is how I used them:
+
+	`// GENERICS
+	public static < E > void printArray( E[] inputArray ) {
+		// Display array elements
+		for(E element : inputArray) {
+			System.out.printf("%s ", element);
+		}
+		System.out.println();
+	}
+	
+	// GENERICS
+		
+		System.out.println("\n\nUSE OF GENERICS: \n");
+
+		// Create arrays of Integer, Double and Character
+		String[] stringArray = { "The sound of the sea,", "Music time and", "Apollo." };
+		Integer[] intArray = { 4, 5, 3 };
+		Double[] doubleArray = { 10.0, 15.4919, 8.9442 };
+		
+		System.out.println("The names of our hotels are:");
+		printArray(stringArray);   // pass a String array
+
+		System.out.println("\nThe stars number of our hotels are:");
+		printArray(intArray);   // pass an Integer array
+
+		System.out.println("\nThe prizes of each room with discount are:");
+		printArray(doubleArray);   // pass a Double array `
+		
+**READING AND WRITING OVER A TEXT FILE**: With this we can write on a empty file to read it later on and run it in the Eclipse:
+	
+	`      // LECTURA Y ESCRITURA DE FICHERO
+		
+		System.out.println("\n\nLECTURA Y ESCRITURA DE FICHERO:");
+
+		// array of the hotels prices, no discount and discounted
+		double[][] prices = { { 100, 240, 80},
+							  { 10.0, 15.4919, 8.9442}};
+		
+		// escritura en el fichero de texto
+		String idFichero = "numeros2.txt";
+		
+		PrintWriter ficheroSalida = new PrintWriter(idFichero);
+		
+		for (int i=0; i<prices.length; i++) {
+			for (int j=0; j<prices[i].length; j++)
+				ficheroSalida.print(prices[i][j] + ",");
+
+			ficheroSalida.println("");
+		}
+		ficheroSalida.close();
+
+		
+		// lectura del fichero de texto "numeros2.txt"
+		File ficheroEntrada = new File (idFichero);
+		
+		if (ficheroEntrada.exists()) {
+			Scanner datosFichero = new Scanner(ficheroEntrada);
+			System.out.println("\nHotels prices: \n");
+			
+			while (datosFichero.hasNext()) {
+				String []numerosFichero = datosFichero.next().split(",");
+				
+				for (int i=0; i < numerosFichero.length; i++)
+					System.out.print(numerosFichero[i] + "\t");
+				System.out.println("");
+			}
+			datosFichero.close();
+		}
+		else
+			System.out.println("The document does not exist!");`
+			
+			
+**CRYPTO LIBRARY**: Provides the classes and interfaces for cryptographic operations. I used it in this little program:
+
+	`// CRYPTO LIBRARY
+	
+	private static final String UNICODE_FORMAT = "UTF-8";
+
+	public static SecretKey generateKey(String encryptionType) {
+
+		try {
+			KeyGenerator keyGenerator = KeyGenerator.getInstance(encryptionType);
+			SecretKey myKey = keyGenerator.generateKey();
+			return myKey;
+
+		}catch (Exception e){
+			return null;
+		}
+	}
+	
+	public static byte[] encryptString(String dataToEncrypt, SecretKey myKey, Cipher cipher) {
+		
+		try {
+			byte [] text = dataToEncrypt.getBytes(UNICODE_FORMAT);
+			cipher.init(Cipher.ENCRYPT_MODE, myKey);
+			byte [] textEncrypted = cipher.doFinal(text);
+			
+			return textEncrypted;
+			
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public static String decryptString(byte[] dataToDecrypt, SecretKey myKey, Cipher cipher) {
+		
+		try {
+			cipher.init(Cipher.DECRYPT_MODE, myKey);
+			byte[] textDecrypted = cipher.doFinal(dataToDecrypt);
+			String result = new String(textDecrypted);
+			
+			return result;
+		}catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+	// USE OF THE CRYPTO LIBRARY
+		
+		String text = "Welcome to the hotels list reservation! Here is our information:";
+		
+		try {
+			SecretKey key = generateKey("AES");
+			Cipher chipher;
+			chipher = Cipher.getInstance("AES");
+			
+			byte[] encryptedData = encryptString(text, key, chipher);
+			String encryptedString = new String(encryptedData);
+			System.out.println("ENCRYPTED --> " + encryptedString);
+			String decrypted = decryptString (encryptedData, key, chipher);
+			System.out.println("\nDECRYPTED --> " + decrypted);
+			
+		}catch (Exception e) {
+			
+		}`
