@@ -190,43 +190,43 @@ public class Simulation {
 		printArray(doubleArray);   // pass a Double array
 	
 
-		// LECTURA Y ESCRITURA DE FICHERO
+		// READING AND WRITING OVER A TEXT FILE
 		
-		System.out.println("\n\nLECTURA Y ESCRITURA DE FICHERO:");
+		System.out.println("\n\nREADING AND WRITING OVER A TEXT FILE:");
 
 		// array of the hotels prices, no discount and discounted
 		double[][] prices = { { 100, 240, 80},
 							  { 10.0, 15.4919, 8.9442}};
 		
-		// escritura en el fichero de texto
-		String idFichero = "numeros2.txt";
+		// writing on the text file
+		String idFile = "numeros2.txt";
 		
-		PrintWriter ficheroSalida = new PrintWriter(idFichero);
+		PrintWriter outFile = new PrintWriter(idFile);
 		
 		for (int i=0; i<prices.length; i++) {
 			for (int j=0; j<prices[i].length; j++)
-				ficheroSalida.print(prices[i][j] + ",");
+				outFile.print(prices[i][j] + ",");
 
-			ficheroSalida.println("");
+			outFile.println("");
 		}
-		ficheroSalida.close();
+		outFile.close();
 
 		
-		// lectura del fichero de texto "numeros2.txt"
-		File ficheroEntrada = new File (idFichero);
+		// reading the text file
+		File inFile = new File (idFile);
 		
-		if (ficheroEntrada.exists()) {
-			Scanner datosFichero = new Scanner(ficheroEntrada);
+		if (inFile.exists()) {
+			Scanner fileData = new Scanner(inFile);
 			System.out.println("\nHotels prices: \n");
 			
-			while (datosFichero.hasNext()) {
-				String []numerosFichero = datosFichero.next().split(",");
+			while (fileData.hasNext()) {
+				String []fileNumbers = fileData.next().split(",");
 				
-				for (int i=0; i < numerosFichero.length; i++)
-					System.out.print(numerosFichero[i] + "\t");
+				for (int i=0; i < fileNumbers.length; i++)
+					System.out.print(fileNumbers[i] + "\t");
 				System.out.println("");
 			}
-			datosFichero.close();
+			fileData.close();
 		}
 		else
 			System.out.println("The document does not exist!");
